@@ -29,10 +29,10 @@ const socials = [
     value: "@MPkS1",
   },
   {
-    href: "mailto:contact@mpks1.dev",
+    href: "mailto:maddulapurushottama@gmail.com",
     icon: Mail,
     label: "Email",
-    value: "contact@mpks1.dev",
+    value: "maddulapurushottama@gmail.com",
   },
 ];
 

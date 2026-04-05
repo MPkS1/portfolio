@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SectionHeader from "@/components/SectionHeader";
-import { Brain, Code, Cpu, Globe, Smartphone, ShieldCheck } from "lucide-react";
+import { Brain, Code, Cpu, Globe, Smartphone, ShieldCheck, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About",
@@ -134,7 +134,7 @@ export default function AboutPage() {
         </div>
 
         {/* Timeline */}
-        <div>
+        <div className="mb-20">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-10">
             Project Journey
           </h2>
@@ -155,6 +155,62 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* AI in My Development Process */}
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-4">
+            AI in My Development Process
+          </h2>
+          <p className="text-center text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-10">
+            Every project I build starts as an idea. AI tools help me move from concept to
+            working code — faster, smarter, and with more learning along the way.
+          </p>
+          <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto mb-8">
+            {[
+              {
+                tool: "GitHub Copilot",
+                emoji: "🤖",
+                usage: "Code generation, boilerplate scaffolding, and real-time autocomplete while coding.",
+              },
+              {
+                tool: "ChatGPT",
+                emoji: "🧠",
+                usage: "Architecture decisions, algorithm design, debugging complex logic, and learning new patterns.",
+              },
+              {
+                tool: "Google Gemini",
+                emoji: "🔮",
+                usage: "Research, documentation writing, and integrating Google-ecosystem APIs like MoveNet and Safe Browsing.",
+              },
+              {
+                tool: "Claude",
+                emoji: "💡",
+                usage: "Complex problem-solving, low-level systems programming guidance, and in-depth code review.",
+              },
+            ].map(({ tool, emoji, usage }) => (
+              <div
+                key={tool}
+                className="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 p-5 hover:border-indigo-300 dark:hover:border-indigo-700 transition-colors"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="text-2xl">{emoji}</span>
+                  <h3 className="font-bold text-gray-900 dark:text-white">{tool}</h3>
+                </div>
+                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{usage}</p>
+              </div>
+            ))}
+          </div>
+          <div className="max-w-2xl mx-auto rounded-2xl border border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-950/30 p-6 text-center">
+            <Sparkles className="w-6 h-6 text-indigo-500 mx-auto mb-2" />
+            <p className="font-semibold text-indigo-800 dark:text-indigo-200 mb-1">
+              &ldquo;AI is my coding partner, not a replacement&rdquo;
+            </p>
+            <p className="text-sm text-indigo-600 dark:text-indigo-400">
+              The ideas, vision, and decisions are mine. AI accelerates the path from idea to
+              reality — making me a faster learner and a more productive builder.
+            </p>
           </div>
         </div>
       </div>

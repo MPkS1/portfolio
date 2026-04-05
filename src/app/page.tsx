@@ -4,6 +4,7 @@ import { blogPosts } from "@/lib/blog";
 import ProjectCard from "@/components/ProjectCard";
 import BlogCard from "@/components/BlogCard";
 import SectionHeader from "@/components/SectionHeader";
+import AiJourneySection from "@/components/AiJourneySection";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -55,6 +56,9 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      {/* AI-Powered Development Journey */}
+      <AiJourneySection />
 
       {/* Latest Blog Posts */}
       <section className="bg-gray-50 dark:bg-gray-900/30">

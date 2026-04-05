@@ -9,6 +9,8 @@ export interface Project {
   demo?: string;
   featured: boolean;
   year: number;
+  aiTools?: string[];
+  aiDetails?: string;
 }
 
 export const projects: Project[] = [
@@ -22,6 +24,8 @@ export const projects: Project[] = [
     github: "https://github.com/MPkS1/vertical-jump-analyzer",
     featured: true,
     year: 2024,
+    aiTools: ["GitHub Copilot", "ChatGPT"],
+    aiDetails: "MoveNet integration architecture guided by Copilot; analytics pipeline algorithms suggested by ChatGPT.",
   },
   {
     id: "mern-chat-app",
@@ -33,6 +37,8 @@ export const projects: Project[] = [
     github: "https://github.com/MPkS1/mern-chat-app-master",
     featured: true,
     year: 2024,
+    aiTools: ["GitHub Copilot", "ChatGPT"],
+    aiDetails: "Socket.io real-time logic scaffolded with Copilot; authentication flow and state management designed with ChatGPT.",
   },
   {
     id: "sports-evaluate-android",
@@ -44,6 +50,8 @@ export const projects: Project[] = [
     github: "https://github.com/MPkS1/sports-evaluate-android",
     featured: true,
     year: 2024,
+    aiTools: ["GitHub Copilot", "Google Gemini"],
+    aiDetails: "Jetpack Compose UI patterns and MVVM boilerplate generated with Copilot; Firebase integration guidance from Gemini.",
   },
   {
     id: "qshield-ai",
@@ -55,6 +63,8 @@ export const projects: Project[] = [
     github: "https://github.com/MPkS1/squid_game_73",
     featured: true,
     year: 2024,
+    aiTools: ["ChatGPT", "Google Gemini"],
+    aiDetails: "Quantum risk scoring concept developed with ChatGPT; Gemini API integration and heuristic rules refined with Gemini.",
   },
   {
     id: "aios",
@@ -66,6 +76,8 @@ export const projects: Project[] = [
     github: "https://github.com/MPkS1/AIOS",
     featured: true,
     year: 2024,
+    aiTools: ["Claude", "ChatGPT"],
+    aiDetails: "Low-level Rust kernel patterns and memory management strategies guided by Claude; UEFI bootloader design with ChatGPT.",
   },
   {
     id: "react-learning",
@@ -77,6 +89,8 @@ export const projects: Project[] = [
     github: "https://github.com/MPkS1/REACT--LEARNING-",
     featured: false,
     year: 2023,
+    aiTools: ["GitHub Copilot", "ChatGPT"],
+    aiDetails: "Curriculum structure and interactive exercise scaffolding developed with Copilot and ChatGPT.",
   },
 ];
 

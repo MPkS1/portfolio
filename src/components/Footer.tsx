@@ -6,7 +6,7 @@ const socials = [
   { href: "https://github.com/MPkS1", icon: GithubIcon, label: "GitHub" },
   { href: "https://linkedin.com/in/maddula-purushottama-kumar", icon: LinkedinIcon, label: "LinkedIn" },
   { href: "https://twitter.com/MPkS1", icon: TwitterIcon, label: "Twitter" },
-  { href: "mailto:contact@mpks1.dev", icon: Mail, label: "Email" },
+  { href: "mailto:maddulapurushottama@gmail.com", icon: Mail, label: "Email" },
 ];
 
 const footerLinks = [
@@ -61,7 +61,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800 text-center">
           <p className="text-xs text-gray-400">
-            © {new Date().getFullYear()} Maddula Purushottama Kumar. Built with Next.js, TypeScript &amp; Tailwind CSS.
+            © {new Date().getFullYear()} Maddula Purushottama Kumar. Built with Next.js, TypeScript, Tailwind CSS &amp; AI assistance.
           </p>
         </div>
       </div>
