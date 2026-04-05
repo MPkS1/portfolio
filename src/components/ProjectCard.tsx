@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Star } from "lucide-react";
+import { ExternalLink, Sparkles, Star } from "lucide-react";
 import { GithubIcon } from "./SocialIcons";
 import { Project } from "@/lib/projects";
 import { cn } from "@/lib/utils";
@@ -51,9 +51,36 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       </h3>
 
       {/* Description */}
-      <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed flex-1 mb-5">
+      <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed flex-1 mb-4">
         {project.description}
       </p>
+
+      {/* AI badge */}
+      {project.aiTools && project.aiTools.length > 0 && (
+        <div className="mb-4 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 px-3 py-2">
+          <div className="flex items-center gap-1.5 mb-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
+            <span className="text-xs font-semibold text-indigo-700 dark:text-indigo-300">
+              Built with AI Assistance
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-1 mb-1">
+            {project.aiTools.map((tool) => (
+              <span
+                key={tool}
+                className="text-xs px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 font-medium"
+              >
+                {tool}
+              </span>
+            ))}
+          </div>
+          {project.aiDetails && (
+            <p className="text-xs text-indigo-600/80 dark:text-indigo-400/80 leading-snug">
+              {project.aiDetails}
+            </p>
+          )}
+        </div>
+      )}
 
       {/* Tech tags */}
       <div className="flex flex-wrap gap-2 mb-5">

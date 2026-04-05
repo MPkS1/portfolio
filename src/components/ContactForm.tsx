@@ -10,6 +10,27 @@ interface FormState {
   message: string;
 }
 
+interface FormErrors {
+  name?: string;
+  email?: string;
+  subject?: string;
+  message?: string;
+}
+
+function validateForm(form: FormState): FormErrors {
+  const errors: FormErrors = {};
+  if (!form.name.trim()) errors.name = "Name is required.";
+  if (!form.email.trim()) {
+    errors.email = "Email is required.";
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+    errors.email = "Please enter a valid email address.";
+  }
+  if (!form.subject.trim()) errors.subject = "Subject is required.";
+  if (form.message.trim().length < 10)
+    errors.message = "Message must be at least 10 characters.";
+  return errors;
+}
+
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>({
     name: "",
@@ -17,20 +38,49 @@ export default function ContactForm() {
     subject: "",
     message: "",
   });
+  const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [apiError, setApiError] = useState<string>("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    // Clear field error on change
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const validationErrors = validateForm(form);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+    setErrors({});
+    setApiError("");
     setStatus("sending");
-    // Simulate sending
-    await new Promise((r) => setTimeout(r, 1200));
-    setStatus("sent");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json() as { success?: boolean; error?: string };
+      if (res.ok && data.success) {
+        setStatus("sent");
+      } else {
+        setApiError(data.error ?? "Failed to send email. Please try again.");
+        setStatus("error");
+      }
+    } catch {
+      setApiError("Network error. Please check your connection and try again.");
+      setStatus("error");
+    }
   };
 
   if (status === "sent") {
@@ -38,21 +88,35 @@ export default function ContactForm() {
       <div className="rounded-2xl border border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-950/30 p-8 text-center">
         <div className="text-4xl mb-4">✅</div>
         <h3 className="text-xl font-bold text-green-700 dark:text-green-400 mb-2">
-          Message Sent!
+          Email Sent Successfully!
         </h3>
         <p className="text-gray-600 dark:text-gray-400">
-          Thanks for reaching out. I&apos;ll get back to you within 24 hours.
+          Thanks for reaching out. I&apos;ll get back to you soon.
         </p>
+        <button
+          onClick={() => {
+            setForm({ name: "", email: "", subject: "", message: "" });
+            setStatus("idle");
+          }}
+          className="mt-4 text-sm text-indigo-600 dark:text-indigo-400 hover:underline"
+        >
+          Send another message
+        </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+      {status === "error" && apiError && (
+        <div className="rounded-lg border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-950/30 px-4 py-3 text-sm text-red-700 dark:text-red-400">
+          {apiError}
+        </div>
+      )}
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
-            Name
+            Name <span className="text-red-500">*</span>
           </label>
           <input
             id="name"
@@ -62,12 +126,17 @@ export default function ContactForm() {
             value={form.name}
             onChange={handleChange}
             placeholder="Your name"
-            className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+            aria-invalid={!!errors.name}
+            aria-describedby={errors.name ? "name-error" : undefined}
+            className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition aria-[invalid=true]:border-red-400"
           />
+          {errors.name && (
+            <p id="name-error" className="mt-1 text-xs text-red-500">{errors.name}</p>
+          )}
         </div>
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
-            Email
+            Email <span className="text-red-500">*</span>
           </label>
           <input
             id="email"
@@ -77,13 +146,18 @@ export default function ContactForm() {
             value={form.email}
             onChange={handleChange}
             placeholder="you@example.com"
-            className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+            aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? "email-error" : undefined}
+            className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition aria-[invalid=true]:border-red-400"
           />
+          {errors.email && (
+            <p id="email-error" className="mt-1 text-xs text-red-500">{errors.email}</p>
+          )}
         </div>
       </div>
       <div>
         <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
-          Subject
+          Subject <span className="text-red-500">*</span>
         </label>
         <input
           id="subject"
@@ -93,12 +167,17 @@ export default function ContactForm() {
           value={form.subject}
           onChange={handleChange}
           placeholder="What is it about?"
-          className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
+          aria-invalid={!!errors.subject}
+          aria-describedby={errors.subject ? "subject-error" : undefined}
+          className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition aria-[invalid=true]:border-red-400"
         />
+        {errors.subject && (
+          <p id="subject-error" className="mt-1 text-xs text-red-500">{errors.subject}</p>
+        )}
       </div>
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
-          Message
+          Message <span className="text-red-500">*</span>
         </label>
         <textarea
           id="message"
@@ -108,8 +187,13 @@ export default function ContactForm() {
           value={form.message}
           onChange={handleChange}
           placeholder="Tell me more..."
-          className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition resize-none"
+          aria-invalid={!!errors.message}
+          aria-describedby={errors.message ? "message-error" : undefined}
+          className="w-full px-4 py-2.5 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition resize-none aria-[invalid=true]:border-red-400"
         />
+        {errors.message && (
+          <p id="message-error" className="mt-1 text-xs text-red-500">{errors.message}</p>
+        )}
       </div>
       <button
         type="submit"
@@ -122,3 +206,4 @@ export default function ContactForm() {
     </form>
   );
 }
+

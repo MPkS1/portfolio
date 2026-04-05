@@ -67,4 +67,14 @@ export const skillCategories: SkillCategory[] = [
       { name: "Firebase / Google Cloud", level: 75 },
     ],
   },
+  {
+    name: "AI Tools & Pair Programming",
+    icon: "✨",
+    skills: [
+      { name: "GitHub Copilot", level: 90 },
+      { name: "ChatGPT", level: 90 },
+      { name: "Claude", level: 85 },
+      { name: "Google Gemini", level: 85 },
+    ],
+  },
 ];

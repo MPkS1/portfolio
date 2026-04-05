@@ -24,7 +24,7 @@ export default function Hero() {
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-sm font-medium">
             <Sparkles className="w-4 h-4" />
-            Open to opportunities
+            AI-Powered Developer · Open to opportunities
           </span>
         </motion.div>
 
@@ -53,11 +53,20 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-4 leading-relaxed"
         >
           I build computer vision systems, real-time web apps, Android applications, and
           experimental operating systems in Rust. Passionate about applying AI to real-world
           problems — from sports analytics to cybersecurity.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="text-base text-indigo-600 dark:text-indigo-400 font-medium max-w-xl mx-auto mb-10 italic"
+        >
+          &ldquo;Converting ideas to reality with AI collaboration&rdquo;
         </motion.p>
 
         <motion.div
