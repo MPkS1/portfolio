@@ -55,8 +55,8 @@ export default function ContactForm() {
   ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-    // Clear field error on change
-    if (errors[name as keyof FormErrors]) {
+    // Clear field error on change — only for known form field keys
+    if (name === "name" || name === "email" || name === "subject" || name === "message") {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };

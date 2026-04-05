@@ -1,21 +1,25 @@
 import { Resend } from "resend";
 
-const CONTACT_EMAIL = process.env.CONTACT_EMAIL ?? "maddulapurushottama@gmail.com";
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 
 // Simple in-memory rate limiting (per IP, resets on server restart)
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_MAX = 5;
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
+let requestCount = 0;
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
-  // Periodically clean up expired entries to prevent unbounded map growth
-  for (const [key, entry] of rateLimitMap.entries()) {
-    if (now > entry.resetAt) rateLimitMap.delete(key);
+  // Clean up expired entries every 100 requests to avoid unbounded map growth
+  requestCount += 1;
+  if (requestCount % 100 === 0) {
+    for (const [key, entry] of rateLimitMap.entries()) {
+      if (now > entry.resetAt) rateLimitMap.delete(key);
+    }
   }
   const entry = rateLimitMap.get(ip);
-  if (!entry) {
+  if (!entry || now > entry.resetAt) {
     rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
     return false;
   }
@@ -114,7 +118,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "Please enter a valid email address." }, { status: 400 });
   }
 
-  if (!RESEND_API_KEY) {
+  if (!RESEND_API_KEY || !CONTACT_EMAIL) {
     return Response.json(
       { error: "Email service is not configured. Please contact me directly." },
       { status: 503 }
