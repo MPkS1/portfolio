@@ -40,7 +40,7 @@ export const projects: Project[] = [
     title: "PortfolioOS",
     description: "This portfolio website — a fast, accessible, and beautifully animated site built with Next.js 14 and Framer Motion.",
     longDescription: "PortfolioOS is the portfolio website you are currently viewing. Built with Next.js 14 App Router, TypeScript, and Tailwind CSS, it features smooth Framer Motion animations, dark/light mode, a responsive design, and near-perfect Lighthouse scores.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "next-themes"],
+    tech: ["Next.js 16", "TypeScript", "Tailwind CSS", "Framer Motion", "next-themes"],
     category: "Web Dev",
     github: "https://github.com/mpks1/portfolio",
     demo: "https://mk.dev",
