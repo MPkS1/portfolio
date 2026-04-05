@@ -26,11 +26,11 @@ export const skillCategories: SkillCategory[] = [
     name: "Languages",
     icon: "💻",
     skills: [
-      { name: "Python", level: 95 },
       { name: "TypeScript", level: 85 },
       { name: "JavaScript", level: 90 },
       { name: "SQL", level: 80 },
       { name: "Bash", level: 75 },
+      { name: "Rust", level: 55 },
     ],
   },
   {
@@ -58,10 +58,10 @@ export const skillCategories: SkillCategory[] = [
     icon: "🔧",
     skills: [
       { name: "Git", level: 95 },
-      { name: "Docker", level: 75 },
       { name: "AWS", level: 70 },
       { name: "VS Code", level: 95 },
       { name: "Jupyter", level: 90 },
+      { name: "Linux", level: 85 },
     ],
   },
 ];
