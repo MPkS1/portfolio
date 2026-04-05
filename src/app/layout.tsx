@@ -6,24 +6,24 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "MK — AI Researcher & Developer",
-    template: "%s | MK",
+    default: "Maddula Purushottama Kumar — AI Researcher & Developer",
+    template: "%s | Maddula Purushottama Kumar",
   },
   description:
-    "MK is an AI researcher and developer specialising in large language models, computer vision, and full-stack web applications.",
-  keywords: ["AI", "Machine Learning", "Next.js", "TypeScript", "LLM", "Python", "React"],
-  authors: [{ name: "MK" }],
+    "Maddula Purushottama Kumar is an AI researcher and developer specialising in computer vision, full-stack web development, Android apps, OS development, and cybersecurity.",
+  keywords: ["AI", "Machine Learning", "Computer Vision", "TensorFlow", "React", "Kotlin", "Rust", "Next.js", "TypeScript", "Python", "Android", "Firebase"],
+  authors: [{ name: "Maddula Purushottama Kumar" }],
   openGraph: {
-    title: "MK — AI Researcher & Developer",
+    title: "Maddula Purushottama Kumar — AI Researcher & Developer",
     description:
-      "AI researcher and developer specialising in LLMs, computer vision, and full-stack web apps.",
+      "AI researcher and developer specialising in computer vision, full-stack web apps, Android development, OS development in Rust, and cybersecurity.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "MK — AI Researcher & Developer",
-    description: "AI researcher and developer.",
+    title: "Maddula Purushottama Kumar — AI Researcher & Developer",
+    description: "AI researcher and developer building computer vision, web, mobile, and systems software.",
   },
 };
 

@@ -3,7 +3,7 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   content: string;
-  category: "AI/ML" | "Web Dev" | "Research" | "Career";
+  category: "AI/ML" | "Web Dev" | "Systems" | "Mobile";
   tags: string[];
   date: string;
   readTime: number;
@@ -12,47 +12,47 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    id: "rag-systems-langchain",
-    title: "Building Production RAG Systems with LangChain",
-    excerpt: "A deep dive into Retrieval-Augmented Generation: architecture decisions, chunking strategies, vector store selection, and pitfalls to avoid when going to production.",
+    id: "movenet-pose-detection",
+    title: "Pose Detection for Sports Analytics with MoveNet",
+    excerpt: "How I used Google's MoveNet SinglePose Lightning model and TensorFlow to build a real-time vertical jump analyser — from keypoint extraction to jump-height calculation.",
     content: "",
     category: "AI/ML",
-    tags: ["RAG", "LangChain", "LLM", "Python", "Production"],
-    date: "2025-03-12",
+    tags: ["TensorFlow", "MoveNet", "OpenCV", "Python", "Computer Vision"],
+    date: "2024-11-15",
+    readTime: 10,
+    featured: true,
+  },
+  {
+    id: "real-time-chat-socketio",
+    title: "Building Real-Time Chat with MERN & Socket.io",
+    excerpt: "A walkthrough of architecting a scalable chat app — JWT auth, Socket.io rooms, Zustand global state, and Tailwind CSS for a polished UI.",
+    content: "",
+    category: "Web Dev",
+    tags: ["React", "Node.js", "Socket.io", "MongoDB", "Zustand", "Tailwind CSS"],
+    date: "2024-09-08",
     readTime: 12,
     featured: true,
   },
   {
-    id: "nextjs-14-app-router",
-    title: "Next.js 14 App Router: Complete Guide",
-    excerpt: "Everything you need to know about the Next.js 14 App Router — server components, streaming, parallel routes, intercepting routes, and migration tips from Pages Router.",
+    id: "rust-os-development",
+    title: "Writing an OS in Rust: UEFI Boot to Kernel",
+    excerpt: "My notes on bootstrapping AIOS — a Rust-based experimental OS — from a UEFI bootloader through virtual memory management to an early AI-runtime prototype.",
     content: "",
-    category: "Web Dev",
-    tags: ["Next.js", "React", "TypeScript", "App Router"],
-    date: "2025-02-20",
-    readTime: 15,
-    featured: true,
-  },
-  {
-    id: "fine-tuning-llms",
-    title: "Fine-tuning LLMs: Practical Guide",
-    excerpt: "From LoRA to full fine-tuning — a practical, cost-conscious guide to adapting open-source large language models for domain-specific tasks.",
-    content: "",
-    category: "AI/ML",
-    tags: ["LLM", "Fine-tuning", "LoRA", "HuggingFace", "PyTorch"],
-    date: "2025-01-08",
+    category: "Systems",
+    tags: ["Rust", "OS Development", "UEFI", "QEMU", "x86_64"],
+    date: "2024-07-22",
     readTime: 18,
     featured: false,
   },
   {
-    id: "typescript-best-practices-2026",
-    title: "TypeScript Best Practices in 2026",
-    excerpt: "Updated best practices for TypeScript in 2026: strict mode, utility types, discriminated unions, satisfies operator, and patterns that scale in large codebases.",
+    id: "jetpack-compose-firebase",
+    title: "Jetpack Compose + Firebase: Multi-Step Auth Flow",
+    excerpt: "Step-by-step guide to building a multi-screen authentication flow in Jetpack Compose with Firebase Auth, Firestore, and email verification.",
     content: "",
-    category: "Web Dev",
-    tags: ["TypeScript", "JavaScript", "Best Practices", "Architecture"],
-    date: "2024-12-05",
-    readTime: 10,
+    category: "Mobile",
+    tags: ["Kotlin", "Jetpack Compose", "Firebase", "Android", "MVVM"],
+    date: "2024-05-10",
+    readTime: 14,
     featured: false,
   },
 ];
