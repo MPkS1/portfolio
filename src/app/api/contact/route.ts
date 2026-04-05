@@ -10,8 +10,12 @@ const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 hour
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
+  // Periodically clean up expired entries to prevent unbounded map growth
+  for (const [key, entry] of rateLimitMap.entries()) {
+    if (now > entry.resetAt) rateLimitMap.delete(key);
+  }
   const entry = rateLimitMap.get(ip);
-  if (!entry || now > entry.resetAt) {
+  if (!entry) {
     rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
     return false;
   }
@@ -22,15 +26,29 @@ function isRateLimited(ip: string): boolean {
   return false;
 }
 
-function sanitize(str: string): string {
-  return str.replace(/[<>]/g, "").trim();
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;")
+    .trim();
+}
+
+function isValidEmail(email: string): boolean {
+  const atIndex = email.indexOf("@");
+  if (atIndex <= 0 || atIndex === email.length - 1) return false;
+  const domain = email.slice(atIndex + 1);
+  const dotIndex = domain.lastIndexOf(".");
+  return dotIndex > 0 && dotIndex < domain.length - 1 && !domain.includes("@");
 }
 
 function buildHtmlEmail(name: string, email: string, subject: string, message: string): string {
-  const safeName = sanitize(name);
-  const safeEmail = sanitize(email);
-  const safeSubject = sanitize(subject);
-  const safeMessage = sanitize(message).replace(/\n/g, "<br>");
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeSubject = escapeHtml(subject);
+  const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
   return `
     <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;background:#f9fafb;border-radius:8px;">
       <h2 style="color:#4f46e5;margin-top:0;">New Portfolio Contact Message</h2>
@@ -48,7 +66,7 @@ function buildHtmlEmail(name: string, email: string, subject: string, message: s
       <hr style="border:none;border-top:1px solid #e5e7eb;margin:24px 0;">
       <p style="color:#6b7280;font-size:13px;margin:0;">
         This email was sent through your portfolio contact form.<br>
-        Reply directly to: <a href="mailto:${safeEmail}" style="color:#4f46e5;">${safeEmail}</a>
+        Reply directly to: ${safeEmail}
       </p>
     </div>
   `;
@@ -72,6 +90,10 @@ export async function POST(request: Request) {
     return Response.json({ error: "Invalid request body." }, { status: 400 });
   }
 
+  if (typeof body !== "object" || body === null) {
+    return Response.json({ error: "Invalid request body." }, { status: 400 });
+  }
+
   const { name, email, subject, message } = body as Record<string, unknown>;
 
   // Validate required fields
@@ -87,15 +109,14 @@ export async function POST(request: Request) {
     );
   }
 
-  // Basic email format validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email.trim())) {
+  // Email format validation
+  if (!isValidEmail(email.trim())) {
     return Response.json({ error: "Please enter a valid email address." }, { status: 400 });
   }
 
   if (!RESEND_API_KEY) {
     return Response.json(
-      { error: "Email service is not configured. Please contact me directly at " + CONTACT_EMAIL },
+      { error: "Email service is not configured. Please contact me directly." },
       { status: 503 }
     );
   }

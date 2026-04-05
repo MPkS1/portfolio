@@ -17,12 +17,20 @@ interface FormErrors {
   message?: string;
 }
 
+function isValidEmail(email: string): boolean {
+  const atIndex = email.indexOf("@");
+  if (atIndex <= 0 || atIndex === email.length - 1) return false;
+  const domain = email.slice(atIndex + 1);
+  const dotIndex = domain.lastIndexOf(".");
+  return dotIndex > 0 && dotIndex < domain.length - 1 && !domain.includes("@");
+}
+
 function validateForm(form: FormState): FormErrors {
   const errors: FormErrors = {};
   if (!form.name.trim()) errors.name = "Name is required.";
   if (!form.email.trim()) {
     errors.email = "Email is required.";
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+  } else if (!isValidEmail(form.email.trim())) {
     errors.email = "Please enter a valid email address.";
   }
   if (!form.subject.trim()) errors.subject = "Subject is required.";
@@ -70,11 +78,19 @@ export default function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      const data = await res.json() as { success?: boolean; error?: string };
-      if (res.ok && data.success) {
+      const data: unknown = await res.json();
+      const isSuccess = res.ok &&
+        typeof data === "object" && data !== null &&
+        "success" in data && (data as { success: unknown }).success === true;
+      if (isSuccess) {
         setStatus("sent");
       } else {
-        setApiError(data.error ?? "Failed to send email. Please try again.");
+        const errMsg =
+          typeof data === "object" && data !== null && "error" in data &&
+          typeof (data as { error: unknown }).error === "string"
+            ? (data as { error: string }).error
+            : "Failed to send email. Please try again.";
+        setApiError(errMsg);
         setStatus("error");
       }
     } catch {
