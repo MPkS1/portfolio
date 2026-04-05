@@ -142,7 +142,7 @@ export default function AboutPage() {
             <div className="absolute left-4 top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-800" />
             <div className="space-y-8">
               {timeline.map((item) => (
-                <div key={item.year + item.title} className="relative pl-12">
+                <div key={`${item.year}-${item.title}`} className="relative pl-12">
                   <div className="absolute left-0 w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
                     <div className="w-3 h-3 rounded-full bg-white" />
                   </div>
