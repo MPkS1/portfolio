@@ -6,33 +6,33 @@ import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/SocialIcons"
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with MK for collaborations, projects, or just to say hi.",
+  description: "Get in touch with Maddula Purushottama Kumar for collaborations, projects, or just to say hi.",
 };
 
 const socials = [
   {
-    href: "https://github.com/mpks1",
+    href: "https://github.com/MPkS1",
     icon: GithubIcon,
     label: "GitHub",
-    value: "github.com/mpks1",
+    value: "github.com/MPkS1",
   },
   {
-    href: "https://linkedin.com/in/mk",
+    href: "https://linkedin.com/in/maddula-purushottama-kumar",
     icon: LinkedinIcon,
     label: "LinkedIn",
-    value: "linkedin.com/in/mk",
+    value: "linkedin.com/in/maddula-purushottama-kumar",
   },
   {
-    href: "https://twitter.com/mk_ai",
+    href: "https://twitter.com/MPkS1",
     icon: TwitterIcon,
     label: "Twitter / X",
-    value: "@mk_ai",
+    value: "@MPkS1",
   },
   {
-    href: "mailto:mk@example.com",
+    href: "mailto:contact@mpks1.dev",
     icon: Mail,
     label: "Email",
-    value: "mk@example.com",
+    value: "contact@mpks1.dev",
   },
 ];
 

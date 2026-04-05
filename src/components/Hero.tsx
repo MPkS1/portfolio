@@ -36,7 +36,7 @@ export default function Hero() {
         >
           <span className="text-gray-900 dark:text-white">Hi, I&apos;m </span>
           <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">
-            MK
+            Purushottama
           </span>
         </motion.h1>
 
@@ -46,7 +46,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-2xl sm:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-6"
         >
-          AI Researcher &amp; Developer
+          AI Researcher · Full-Stack Developer · OS Enthusiast
         </motion.p>
 
         <motion.p
@@ -55,9 +55,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          I build intelligent systems, fine-tune large language models, and craft beautiful
-          web experiences. Passionate about bridging the gap between cutting-edge AI research
-          and real-world production systems.
+          I build computer vision systems, real-time web apps, Android applications, and
+          experimental operating systems in Rust. Passionate about applying AI to real-world
+          problems — from sports analytics to cybersecurity.
         </motion.p>
 
         <motion.div
@@ -70,7 +70,7 @@ export default function Hero() {
             href="/projects"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-indigo-500/25"
           >
-            View Projects
+            Explore My Work
             <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
@@ -80,7 +80,7 @@ export default function Hero() {
             Get in Touch
           </Link>
           <a
-            href="https://github.com/mpks1"
+            href="https://github.com/MPkS1"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
@@ -96,7 +96,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 flex flex-wrap justify-center gap-6 text-sm text-gray-400"
         >
-          {["PyTorch", "LangChain", "Next.js", "FastAPI", "GPT-4", "Docker"].map((tech) => (
+          {["Python", "TensorFlow", "React", "Kotlin", "Rust", "FastAPI", "Node.js", "Firebase"].map((tech) => (
             <span
               key={tech}
               className="px-3 py-1 rounded-full border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900/50 text-gray-600 dark:text-gray-400"

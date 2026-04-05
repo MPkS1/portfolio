@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 const categoryColors: Record<string, string> = {
   "AI/ML": "bg-purple-100 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300",
   "Web Dev": "bg-blue-100 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300",
-  Research: "bg-green-100 dark:bg-green-950/50 text-green-700 dark:text-green-300",
-  Career: "bg-orange-100 dark:bg-orange-950/50 text-orange-700 dark:text-orange-300",
+  Systems: "bg-green-100 dark:bg-green-950/50 text-green-700 dark:text-green-300",
+  Mobile: "bg-orange-100 dark:bg-orange-950/50 text-orange-700 dark:text-orange-300",
 };
 
 interface BlogCardProps {

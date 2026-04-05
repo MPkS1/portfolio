@@ -1,78 +1,81 @@
 import type { Metadata } from "next";
 import SectionHeader from "@/components/SectionHeader";
-import { Brain, Code, FlaskConical, Globe, Rocket, Users } from "lucide-react";
+import { Brain, Code, Cpu, Globe, Smartphone, ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn more about MK — AI researcher, developer, and open-source enthusiast.",
+  description: "Learn more about Maddula Purushottama Kumar — AI researcher, full-stack developer, and OS enthusiast.",
 };
 
 const expertise = [
   {
     icon: Brain,
-    title: "Machine Learning",
+    title: "AI / ML & Computer Vision",
     description:
-      "Deep expertise in supervised, unsupervised, and reinforcement learning. Experienced with PyTorch, TensorFlow, and the HuggingFace ecosystem.",
-  },
-  {
-    icon: FlaskConical,
-    title: "AI Research",
-    description:
-      "Published work on LLM fine-tuning, RAG architectures, and computer vision. Passionate about bridging research and production.",
+      "Built real-world computer vision systems using TensorFlow and Google's MoveNet for pose detection and sports performance analytics. Experienced with Google Gemini API for AI integration.",
   },
   {
     icon: Code,
-    title: "Full-Stack Development",
+    title: "Full-Stack Web Development",
     description:
-      "Building end-to-end products with Next.js, FastAPI, and TypeScript. Focused on performance, accessibility, and great UX.",
+      "End-to-end MERN stack applications with React, Node.js, Express.js, and MongoDB. Real-time features with Socket.io, JWT auth, and state management with Zustand.",
+  },
+  {
+    icon: Smartphone,
+    title: "Android / Mobile Development",
+    description:
+      "Native Android apps in Kotlin with Jetpack Compose, Firebase Auth & Firestore, Material Design 3, and MVVM architecture. Experience with multi-step onboarding and fitness app UX.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Cybersecurity",
+    description:
+      "Developed QShield AI — a multi-engine phishing detection system using FastAPI, Google Safe Browsing API, WHOIS, behavioural heuristics, and quantum risk assessment.",
+  },
+  {
+    icon: Cpu,
+    title: "Systems Programming & OS",
+    description:
+      "Building AIOS — an experimental Rust-based OS with a UEFI bootloader, virtual memory management, IPC, security modules, and an AI runtime. Developing on x86_64 with QEMU/OVMF.",
   },
   {
     icon: Globe,
-    title: "Open Source",
+    title: "Backend APIs & DevOps",
     description:
-      "Active contributor to the open-source community. Maintainer of several libraries in the AI/ML and web development space.",
-  },
-  {
-    icon: Rocket,
-    title: "MLOps & Deployment",
-    description:
-      "Experienced in deploying ML models to production using Docker, Kubernetes, and cloud platforms (AWS, GCP).",
-  },
-  {
-    icon: Users,
-    title: "Mentorship",
-    description:
-      "Passionate about teaching AI/ML concepts. I write blog posts, give talks, and mentor junior engineers.",
+      "REST API design with FastAPI and Express.js, Firebase and Google Cloud integrations, Docker, Android Studio, Git/GitHub workflows, and QEMU-based virtualisation.",
   },
 ];
 
 const timeline = [
   {
     year: "2024–Present",
-    title: "Senior AI Engineer",
-    org: "AI Startup (Stealth)",
-    description: "Leading the development of production RAG systems and LLM fine-tuning pipelines.",
+    title: "AIOS — Rust OS Development",
+    org: "Personal Research Project",
+    description: "Experimenting with writing an OS from scratch in Rust: UEFI bootloader, kernel, virtual memory, IPC, and an AI multi-agent runtime.",
   },
   {
-    year: "2022–2024",
-    title: "ML Engineer",
-    org: "Tech Company",
-    description:
-      "Built computer vision systems for real-time object detection deployed at scale.",
+    year: "2024",
+    title: "QShield AI & Sports Evaluate",
+    org: "Projects",
+    description: "Built a phishing detection backend (FastAPI + Gemini) and a sports fitness Android app (Kotlin + Jetpack Compose + Firebase).",
   },
   {
-    year: "2020–2022",
-    title: "MSc Computer Science (AI)",
-    org: "University",
-    description:
-      "Specialised in deep learning and natural language processing. Thesis on efficient transformer architectures.",
+    year: "2024",
+    title: "Vertical Jump Analyzer",
+    org: "AI/Computer Vision Project",
+    description: "Created a Python tool using TensorFlow MoveNet and OpenCV for automated sports performance analysis.",
   },
   {
-    year: "2017–2020",
-    title: "BSc Computer Science",
-    org: "University",
-    description:
-      "Strong foundations in algorithms, data structures, and software engineering.",
+    year: "2024",
+    title: "MERN Chat App",
+    org: "Full-Stack Web Project",
+    description: "Developed a real-time chat application with React, Node.js, MongoDB, Socket.io, and JWT authentication.",
+  },
+  {
+    year: "2023",
+    title: "React Learning Platform",
+    org: "Educational Project",
+    description: "Built an interactive React curriculum covering hooks, state management, and component architecture using Vite.",
   },
 ];
 
@@ -82,25 +85,28 @@ export default function AboutPage() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6">
         <SectionHeader
           label="About Me"
-          title="Building intelligent systems"
-          description="I'm MK — an AI researcher and full-stack developer who loves turning complex ideas into elegant, working software."
+          title="Maddula Purushottama Kumar"
+          description="AI researcher, full-stack developer, Android engineer, and OS enthusiast — building across the entire stack."
         />
 
         {/* Bio */}
         <div className="max-w-3xl mx-auto mb-20 text-gray-600 dark:text-gray-400 space-y-4 text-lg leading-relaxed">
           <p>
-            I spend most of my time at the intersection of AI research and software engineering —
-            whether that means fine-tuning large language models, building real-time computer vision
-            systems, or crafting performant web applications.
+            I&apos;m Maddula Purushottama Kumar — a developer and researcher who loves working
+            at the intersection of AI, systems programming, and real-world applications. My work
+            spans computer vision pipelines, full-stack web platforms, native Android apps, a
+            cybersecurity backend, and an experimental operating system written in Rust.
           </p>
           <p>
-            My background spans both academia (MSc in AI, several published papers) and industry
-            (production ML systems serving millions of users). I believe great AI products require
-            both rigorous research thinking and pragmatic engineering.
+            From analysing vertical jumps with Google&apos;s MoveNet pose-detection model to
+            bootstrapping a UEFI bootloader in bare-metal Rust, I enjoy tackling technically
+            diverse challenges and shipping projects end-to-end.
           </p>
           <p>
-            Outside of work I contribute to open source, write about AI on my blog, and enjoy
-            running, reading, and playing chess.
+            I&apos;m always exploring new domains — whether that&apos;s Jetpack Compose for
+            Android, quantum-inspired risk scoring for phishing detection, or AI runtime
+            orchestration inside an OS kernel. I believe the best engineers are generalists
+            who go deep when it matters.
           </p>
         </div>
 
@@ -130,13 +136,13 @@ export default function AboutPage() {
         {/* Timeline */}
         <div>
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-10">
-            Journey
+            Project Journey
           </h2>
           <div className="relative max-w-2xl mx-auto">
             <div className="absolute left-4 top-0 bottom-0 w-px bg-gray-200 dark:bg-gray-800" />
             <div className="space-y-8">
               {timeline.map((item) => (
-                <div key={item.year} className="relative pl-12">
+                <div key={item.year + item.title} className="relative pl-12">
                   <div className="absolute left-0 w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center">
                     <div className="w-3 h-3 rounded-full bg-white" />
                   </div>

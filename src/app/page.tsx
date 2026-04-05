@@ -19,10 +19,10 @@ export default function HomePage() {
       <section className="border-y border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
           {[
-            { label: "Projects Built", value: "20+" },
-            { label: "Years of Experience", value: "5+" },
-            { label: "Research Papers", value: "8" },
-            { label: "Open Source Stars", value: "1.2k" },
+            { label: "Projects Built", value: "6+" },
+            { label: "Tech Stacks", value: "5+" },
+            { label: "Languages", value: "5+" },
+            { label: "GitHub Repos", value: "10+" },
           ].map((stat) => (
             <div key={stat.label}>
               <p className="text-3xl font-extrabold text-indigo-600 dark:text-indigo-400 mb-1">
@@ -39,7 +39,7 @@ export default function HomePage() {
         <SectionHeader
           label="Work"
           title="Featured Projects"
-          description="A selection of projects I'm most proud of — from production AI systems to open-source libraries."
+          description="A selection of my real projects — from AI-powered sports analytics and cybersecurity tools to Android apps and an experimental OS in Rust."
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {featured.map((project, i) => (

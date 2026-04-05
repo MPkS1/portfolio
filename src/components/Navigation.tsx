@@ -48,7 +48,7 @@ export default function Navigation() {
           className="flex items-center gap-2 font-bold text-xl text-indigo-600 dark:text-indigo-400"
         >
           <Code2 className="w-6 h-6" />
-          MK
+          MPK
         </Link>
 
         {/* Desktop links */}
