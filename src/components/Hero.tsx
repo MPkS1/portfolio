@@ -42,18 +42,21 @@ export default function Hero() {
         }
       );
 
-      gsap.fromTo(
-        headlineRef.current?.querySelectorAll("[data-split]"),
-        { yPercent: 110, opacity: 0 },
-        {
-          yPercent: 0,
-          opacity: 1,
-          duration: 0.9,
-          ease: "power4.out",
-          stagger: 0.06,
-          delay: 0.1,
-        }
-      );
+      const splitTargets = headlineRef.current?.querySelectorAll("[data-split]");
+      if (splitTargets) {
+        gsap.fromTo(
+          splitTargets,
+          { yPercent: 110, opacity: 0 },
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.9,
+            ease: "power4.out",
+            stagger: 0.06,
+            delay: 0.1,
+          }
+        );
+      }
 
       gsap.fromTo(
         cardRef.current,
