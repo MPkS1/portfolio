@@ -33,9 +33,9 @@ export default function HomePage() {
         <div className="premium-glass rounded-[2rem] p-6 sm:p-8">
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {stats.map((stat) => (
-              <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                <p className="font-display text-3xl font-bold text-white sm:text-4xl">{stat.value}</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.28em] text-white/45">{stat.label}</p>
+              <div key={stat.label} className="theme-card rounded-2xl p-5">
+                <p className="font-display text-3xl font-bold theme-text-main sm:text-4xl">{stat.value}</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.28em] theme-text-muted">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -50,7 +50,7 @@ export default function HomePage() {
         />
         <div className="mb-8 grid gap-4 lg:grid-cols-3">
           {featuredNotes.map((note) => (
-            <div key={note} className="premium-glass rounded-[1.75rem] p-5 text-sm leading-7 text-white/72">
+            <div key={note} className="premium-glass rounded-[1.75rem] p-5 text-sm leading-7 theme-text-secondary">
               <Sparkles className="mb-3 h-5 w-5 text-[#5eead4]" />
               {note}
             </div>
@@ -64,7 +64,7 @@ export default function HomePage() {
         <div className="mt-10 text-center">
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white px-6 py-3.5 text-sm font-semibold text-[#050816] transition hover:-translate-y-0.5 hover:shadow-[0_14px_40px_rgba(255,255,255,0.16)]"
+            className="theme-button-primary inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition hover:-translate-y-0.5"
           >
             View all projects
             <ArrowRight className="h-4 w-4" />
@@ -80,7 +80,7 @@ export default function HomePage() {
         />
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="premium-glass rounded-[2rem] p-6 sm:p-8">
-            <p className="text-balance text-lg leading-8 text-white/76">
+            <p className="text-balance text-lg leading-8 theme-text-secondary">
               I build interfaces that feel intentional. This redesign leans into strong typography, spacious layout rhythm, glass surfaces only where they help, and motion that reveals structure rather than distracting from it.
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -90,15 +90,15 @@ export default function HomePage() {
                 "SEO-friendly semantic structure and clean hierarchy",
                 "Performance-conscious, componentized implementation",
               ].map((item) => (
-                <div key={item} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/68">
+                <div key={item} className="theme-card p-4 rounded-2xl text-sm theme-text-secondary">
                   {item}
                 </div>
               ))}
             </div>
           </div>
           <div className="premium-glass rounded-[2rem] p-6 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.32em] text-white/45">Current focus</p>
-            <div className="mt-5 space-y-4 text-sm leading-7 text-white/70">
+            <p className="text-xs uppercase tracking-[0.32em] theme-text-muted">Current focus</p>
+            <div className="mt-5 space-y-4 text-sm leading-7 theme-text-secondary">
               <p>
                 Product-minded frontend systems with clean interaction design.
               </p>
@@ -111,7 +111,7 @@ export default function HomePage() {
             </div>
             <Link
               href="/about"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#5eead4]"
+              className="theme-link-accent mt-6 inline-flex items-center gap-2 text-sm font-semibold"
             >
               Read more about the journey
               <ArrowRight className="h-4 w-4" />
@@ -136,7 +136,7 @@ export default function HomePage() {
         <div className="mt-10 text-center">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white/82 transition hover:border-white/20 hover:bg-white/10 hover:text-white"
+            className="theme-button-secondary inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition"
           >
             Read all posts
             <ArrowRight className="h-4 w-4" />
@@ -151,20 +151,20 @@ export default function HomePage() {
           description="Open to frontend, full-stack, and motion-led product work. If you want a portfolio that feels handcrafted, start here."
         />
         <div className="mx-auto max-w-3xl premium-glass rounded-[2rem] p-6 text-center sm:p-8">
-          <p className="text-lg leading-8 text-white/72">
+          <p className="text-lg leading-8 theme-text-secondary">
             Have a project, interview, or collaboration in mind? I&apos;d love to talk.
           </p>
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#050816] transition hover:-translate-y-0.5"
+              className="theme-button-primary inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition hover:-translate-y-0.5"
             >
               <Mail className="h-4 w-4" />
               Contact me
             </Link>
             <Link
               href="/projects"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white/82 transition hover:bg-white/10"
+              className="theme-button-secondary inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition"
             >
               See the work
               <ArrowRight className="h-4 w-4" />

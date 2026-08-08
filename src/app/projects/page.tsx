@@ -27,8 +27,8 @@ export default function ProjectsPage() {
             className={cn(
               "rounded-full border px-4 py-2 text-sm font-medium transition",
               active === category
-                ? "border-white/20 bg-white text-[#050816]"
-                : "border-white/10 bg-white/5 text-white/72 hover:border-white/20 hover:bg-white/10"
+                ? "theme-button-primary"
+                : "theme-button-secondary"
             )}
           >
             {category}

@@ -2,13 +2,41 @@
 @import "tailwindcss";
 
 :root {
+  --background: #f6f8ff;
+  --foreground: #101729;
+  --text-primary: #101729;
+  --text-secondary: #3e4a66;
+  --text-muted: #657390;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-strong: #ffffff;
+  --surface-soft: rgba(246, 248, 255, 0.85);
+  --border: rgba(16, 23, 41, 0.12);
+  --border-strong: rgba(16, 23, 41, 0.2);
+  --glow: rgba(124, 92, 255, 0.28);
+  --accent: #7c5cff;
+  --accent-2: #5eead4;
+  --accent-3: #ffb86c;
+  --shadow-soft: 0 24px 80px rgba(34, 43, 79, 0.14);
+  --shadow-card: 0 18px 56px rgba(23, 31, 56, 0.12);
+}
+
+.dark {
   --background: #050816;
   --foreground: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #ccd4e9;
+  --text-muted: #8892b0;
   --surface: rgba(14, 19, 37, 0.82);
   --surface-strong: #0e1325;
-  --border: rgba(255, 255, 255, 0.08);
-  --muted: #8892b0;
+  --surface-soft: rgba(26, 34, 63, 0.78);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
   --glow: rgba(124, 92, 255, 0.45);
+  --accent: #8c78ff;
+  --accent-2: #5eead4;
+  --accent-3: #ffb86c;
+  --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 18px 56px rgba(0, 0, 0, 0.28);
 }
 
 @theme inline {
@@ -20,21 +48,21 @@
 html {
   scroll-behavior: smooth;
   background:
-    radial-gradient(circle at top left, rgba(124, 92, 255, 0.18), transparent 30%),
-    radial-gradient(circle at 80% 20%, rgba(94, 234, 212, 0.14), transparent 25%),
-    radial-gradient(circle at 50% 100%, rgba(255, 184, 108, 0.08), transparent 25%),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 28%, transparent), transparent 30%),
+    radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--accent-2) 20%, transparent), transparent 25%),
+    radial-gradient(circle at 50% 100%, color-mix(in srgb, var(--accent-3) 12%, transparent), transparent 25%),
     var(--background);
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: var(--text-primary);
   font-family: "Inter", "Segoe UI", sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
   min-height: 100vh;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--text-primary) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--text-primary) 4%, transparent) 1px, transparent 1px);
   background-size: 72px 72px;
   background-attachment: fixed;
 }
@@ -45,9 +73,9 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    radial-gradient(circle at 20% 20%, rgba(124, 92, 255, 0.12), transparent 24%),
-    radial-gradient(circle at 80% 30%, rgba(94, 234, 212, 0.08), transparent 20%),
-    radial-gradient(circle at 50% 80%, rgba(255, 184, 108, 0.06), transparent 18%);
+    radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 24%),
+    radial-gradient(circle at 80% 30%, color-mix(in srgb, var(--accent-2) 12%, transparent), transparent 20%),
+    radial-gradient(circle at 50% 80%, color-mix(in srgb, var(--accent-3) 10%, transparent), transparent 18%);
   opacity: 0.9;
   z-index: -1;
 }
@@ -57,10 +85,10 @@ body::before {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.02);
+  background: color-mix(in srgb, var(--text-primary) 7%, transparent);
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(124, 92, 255, 0.8), rgba(94, 234, 212, 0.8));
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 80%, white 20%), color-mix(in srgb, var(--accent-2) 80%, white 20%));
   border-radius: 999px;
 }
 
@@ -76,16 +104,66 @@ body::before {
 
 .premium-grid {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(color-mix(in srgb, var(--text-primary) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--text-primary) 8%, transparent) 1px, transparent 1px);
   background-size: 80px 80px;
 }
 
 .premium-glass {
-  background: linear-gradient(180deg, rgba(14, 19, 37, 0.86), rgba(14, 19, 37, 0.62));
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 84%, transparent), color-mix(in srgb, var(--surface) 88%, transparent));
   border: 1px solid var(--border);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow-soft);
   backdrop-filter: blur(24px);
+}
+
+.theme-card {
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+.theme-chip {
+  background: color-mix(in srgb, var(--surface-soft) 70%, transparent);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+}
+
+.theme-text-main {
+  color: var(--text-primary);
+}
+
+.theme-text-secondary {
+  color: var(--text-secondary);
+}
+
+.theme-text-muted {
+  color: var(--text-muted);
+}
+
+.theme-button-primary {
+  background: var(--text-primary);
+  color: var(--background);
+  border: 1px solid transparent;
+}
+
+.theme-button-secondary {
+  background: color-mix(in srgb, var(--surface-soft) 80%, transparent);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+.theme-button-secondary:hover {
+  border-color: var(--border-strong);
+}
+
+.theme-link-accent {
+  color: var(--accent);
+}
+
+.theme-pill {
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-soft) 78%, transparent);
+  color: var(--text-secondary);
 }
 
 .premium-focus:focus-visible {

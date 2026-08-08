@@ -103,10 +103,10 @@ export default function ContactForm() {
     return (
       <div className="premium-glass rounded-[2rem] p-8 text-center">
         <div className="mb-4 text-4xl">✓</div>
-        <h3 className="mb-2 text-xl font-bold text-white">
+        <h3 className="mb-2 text-xl font-bold theme-text-main">
           Email Sent Successfully!
         </h3>
-        <p className="text-white/68">
+        <p className="theme-text-secondary">
           Thanks for reaching out. I&apos;ll get back to you soon.
         </p>
         <button
@@ -131,7 +131,7 @@ export default function ContactForm() {
       )}
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-white/80">
+          <label htmlFor="name" className="mb-1.5 block text-sm font-medium theme-text-secondary">
             Name <span className="text-red-500">*</span>
           </label>
           <input
@@ -144,14 +144,14 @@ export default function ContactForm() {
             placeholder="Your name"
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? "name-error" : undefined}
-            className="premium-focus w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 transition aria-[invalid=true]:border-[#ff7c7c]/60"
+            className="premium-focus w-full rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--surface-soft)_74%,transparent)] px-4 py-3 text-[var(--text-primary)] placeholder:text-[var(--text-muted)] transition aria-[invalid=true]:border-[#ff7c7c]/60"
           />
           {errors.name && (
             <p id="name-error" className="mt-1 text-xs text-[#ff7c7c]">{errors.name}</p>
           )}
         </div>
         <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-white/80">
+          <label htmlFor="email" className="mb-1.5 block text-sm font-medium theme-text-secondary">
             Email <span className="text-red-500">*</span>
           </label>
           <input
@@ -164,7 +164,7 @@ export default function ContactForm() {
             placeholder="you@example.com"
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "email-error" : undefined}
-            className="premium-focus w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 transition aria-[invalid=true]:border-[#ff7c7c]/60"
+            className="premium-focus w-full rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--surface-soft)_74%,transparent)] px-4 py-3 text-[var(--text-primary)] placeholder:text-[var(--text-muted)] transition aria-[invalid=true]:border-[#ff7c7c]/60"
           />
           {errors.email && (
             <p id="email-error" className="mt-1 text-xs text-[#ff7c7c]">{errors.email}</p>
@@ -172,7 +172,7 @@ export default function ContactForm() {
         </div>
       </div>
       <div>
-        <label htmlFor="subject" className="mb-1.5 block text-sm font-medium text-white/80">
+        <label htmlFor="subject" className="mb-1.5 block text-sm font-medium theme-text-secondary">
           Subject <span className="text-red-500">*</span>
         </label>
         <input
@@ -185,14 +185,14 @@ export default function ContactForm() {
           placeholder="What is it about?"
           aria-invalid={!!errors.subject}
           aria-describedby={errors.subject ? "subject-error" : undefined}
-          className="premium-focus w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 transition aria-[invalid=true]:border-[#ff7c7c]/60"
+          className="premium-focus w-full rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--surface-soft)_74%,transparent)] px-4 py-3 text-[var(--text-primary)] placeholder:text-[var(--text-muted)] transition aria-[invalid=true]:border-[#ff7c7c]/60"
         />
         {errors.subject && (
           <p id="subject-error" className="mt-1 text-xs text-[#ff7c7c]">{errors.subject}</p>
         )}
       </div>
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-white/80">
+        <label htmlFor="message" className="mb-1.5 block text-sm font-medium theme-text-secondary">
           Message <span className="text-red-500">*</span>
         </label>
         <textarea
@@ -205,7 +205,7 @@ export default function ContactForm() {
           placeholder="Tell me more..."
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "message-error" : undefined}
-          className="premium-focus w-full resize-none rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder:text-white/30 transition aria-[invalid=true]:border-[#ff7c7c]/60"
+          className="premium-focus w-full resize-none rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--surface-soft)_74%,transparent)] px-4 py-3 text-[var(--text-primary)] placeholder:text-[var(--text-muted)] transition aria-[invalid=true]:border-[#ff7c7c]/60"
         />
         {errors.message && (
           <p id="message-error" className="mt-1 text-xs text-[#ff7c7c]">{errors.message}</p>
@@ -214,7 +214,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="premium-focus inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/10 bg-white px-6 py-3.5 font-semibold text-[#050816] transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
+        className="premium-focus theme-button-primary inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 font-semibold transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-60"
       >
         <Send className="w-4 h-4" />
         {status === "sending" ? "Sending..." : "Send Message"}

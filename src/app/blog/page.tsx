@@ -26,13 +26,13 @@ export default function BlogPage() {
 
       <div className="mx-auto mb-10 max-w-xl">
         <label className="relative block">
-          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/35" />
+          <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 theme-text-muted" />
           <input
             type="text"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search posts by topic or tag"
-            className="premium-focus w-full rounded-full border border-white/10 bg-white/5 py-3 pl-11 pr-4 text-white placeholder:text-white/30"
+            className="premium-focus w-full rounded-full border border-[var(--border)] bg-[color-mix(in_srgb,var(--surface-soft)_78%,transparent)] py-3 pl-11 pr-4 text-[var(--text-primary)] placeholder:text-[var(--text-muted)]"
           />
         </label>
       </div>
@@ -44,7 +44,7 @@ export default function BlogPage() {
           ))}
         </div>
       ) : (
-        <div className="premium-glass rounded-[2rem] p-8 text-center text-white/62">
+        <div className="premium-glass rounded-[2rem] p-8 text-center theme-text-secondary">
           No posts matching "{query}"
         </div>
       )}

@@ -22,7 +22,7 @@ export default function SkillsPage() {
           <div key={category.name} className="premium-glass rounded-[2rem] p-6 sm:p-8">
             <div className="mb-6 flex items-center gap-3">
               <span className="text-2xl">{category.icon}</span>
-              <h2 className="text-lg font-semibold text-white">{category.name}</h2>
+              <h2 className="text-lg font-semibold theme-text-main">{category.name}</h2>
             </div>
             {category.skills.map((skill, index) => (
               <SkillBar key={skill.name} skill={skill} index={index} />

@@ -54,13 +54,13 @@ export default function AiJourneySection() {
           transition={{ duration: 0.5 }}
           className="mb-14 text-center"
         >
-          <span className="mb-3 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.34em] text-[#5eead4]">
+          <span className="theme-pill mb-3 inline-flex rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[0.34em] text-[#5eead4]">
             Development Approach
           </span>
-          <h2 className="font-display text-3xl font-extrabold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-3xl font-extrabold tracking-[-0.04em] theme-text-main sm:text-4xl lg:text-5xl">
             AI-Powered Development Journey
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-balance text-lg leading-8 text-white/62">
+          <p className="mx-auto mt-4 max-w-2xl text-balance text-lg leading-8 theme-text-secondary">
             Every project starts as an idea. AI tools turn those ideas into reality —
             faster prototyping, smarter architecture, and deeper learning along the way.
           </p>
@@ -86,11 +86,11 @@ export default function AiJourneySection() {
                   →
                 </div>
               )}
-              <div className={`mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10 ${step.iconColor}`}>
+              <div className={`mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[color-mix(in_srgb,var(--surface-strong)_80%,transparent)] ${step.iconColor}`}>
                 <step.icon className="w-6 h-6" />
               </div>
-              <p className="mb-1 text-sm font-bold text-white">{step.label}</p>
-              <p className="text-xs leading-snug text-white/72">{step.description}</p>
+              <p className="mb-1 text-sm font-bold theme-text-main">{step.label}</p>
+              <p className="text-xs leading-snug theme-text-secondary">{step.description}</p>
             </motion.div>
           ))}
         </div>
@@ -103,7 +103,7 @@ export default function AiJourneySection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-10"
         >
-          <h3 className="mb-6 text-center text-lg font-bold text-white">
+          <h3 className="mb-6 text-center text-lg font-bold theme-text-main">
             AI Tools in My Toolkit
           </h3>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -114,12 +114,12 @@ export default function AiJourneySection() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.08 }}
-                className="flex items-start gap-3 rounded-[1.5rem] border border-white/10 bg-white/5 p-4 transition-colors hover:border-white/20 hover:bg-white/8"
+                className="theme-card flex items-start gap-3 rounded-[1.5rem] p-4 transition-colors hover:border-[var(--border-strong)]"
               >
                 <span className="text-2xl">{tool.emoji}</span>
                 <div>
-                  <p className="text-sm font-semibold text-white">{tool.name}</p>
-                  <p className="mt-0.5 text-xs text-white/55">{tool.role}</p>
+                  <p className="text-sm font-semibold theme-text-main">{tool.name}</p>
+                  <p className="mt-0.5 text-xs theme-text-secondary">{tool.role}</p>
                 </div>
               </motion.div>
             ))}
@@ -134,10 +134,10 @@ export default function AiJourneySection() {
           transition={{ duration: 0.4, delay: 0.3 }}
           className="rounded-[1.75rem] border border-[#7c5cff]/20 bg-[#7c5cff]/10 p-6 text-center"
         >
-          <p className="mb-1 text-lg font-semibold text-white">
+          <p className="mb-1 text-lg font-semibold theme-text-main">
             All 6 featured projects were built with AI pair programming
           </p>
-          <p className="text-sm text-white/68">
+          <p className="text-sm theme-text-secondary">
             AI is my coding partner — not a replacement. The ideas are mine; AI helps me build them faster and learn more along the way.
           </p>
         </motion.div>

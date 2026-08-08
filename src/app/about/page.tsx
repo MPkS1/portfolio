@@ -88,11 +88,11 @@ export default function AboutPage() {
 
       <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="premium-glass rounded-[2rem] p-6 sm:p-8">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-white/45">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] theme-text-muted">
             <Sparkles className="h-4 w-4 text-[#5eead4]" />
             Philosophy
           </div>
-          <div className="mt-5 space-y-4 text-base leading-8 text-white/74">
+          <div className="mt-5 space-y-4 text-base leading-8 theme-text-secondary">
             <p>
               I value interfaces that feel precise. Good design should reduce friction, surface structure, and help people understand a system quickly.
             </p>
@@ -106,13 +106,13 @@ export default function AboutPage() {
         </div>
 
         <div className="premium-glass rounded-[2rem] p-6 sm:p-8">
-          <p className="text-xs uppercase tracking-[0.3em] text-white/45">What I bring</p>
+          <p className="text-xs uppercase tracking-[0.3em] theme-text-muted">What I bring</p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             {expertise.map(({ icon: Icon, title, description }) => (
-              <div key={title} className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <div key={title} className="theme-card rounded-2xl p-4">
                 <Icon className="h-5 w-5 text-[#5eead4]" />
-                <h3 className="mt-3 text-sm font-semibold text-white">{title}</h3>
-                <p className="mt-2 text-sm leading-7 text-white/60">{description}</p>
+                <h3 className="mt-3 text-sm font-semibold theme-text-main">{title}</h3>
+                <p className="mt-2 text-sm leading-7 theme-text-secondary">{description}</p>
               </div>
             ))}
           </div>
@@ -130,9 +130,9 @@ export default function AboutPage() {
             <div key={`${item.year}-${item.title}`} className="premium-glass relative rounded-[1.75rem] p-5 pl-16">
               <div className="absolute left-5 top-6 h-6 w-6 rounded-full border border-white/15 bg-white/10" />
               <p className="text-xs uppercase tracking-[0.3em] text-[#5eead4]">{item.year}</p>
-              <h3 className="mt-2 text-lg font-semibold text-white">{item.title}</h3>
-              <p className="mt-1 text-sm uppercase tracking-[0.24em] text-white/40">{item.org}</p>
-              <p className="mt-3 text-sm leading-7 text-white/62">{item.description}</p>
+              <h3 className="mt-2 text-lg font-semibold theme-text-main">{item.title}</h3>
+              <p className="mt-1 text-sm uppercase tracking-[0.24em] theme-text-muted">{item.org}</p>
+              <p className="mt-3 text-sm leading-7 theme-text-secondary">{item.description}</p>
             </div>
           ))}
         </div>

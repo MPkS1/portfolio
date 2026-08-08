@@ -84,7 +84,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/75 backdrop-blur"
+            className="theme-pill mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm backdrop-blur"
           >
             <Sparkles className="h-4 w-4 text-[#5eead4]" />
             Available for frontend, product, and motion-heavy interfaces
@@ -92,12 +92,12 @@ export default function Hero() {
 
           <h1
             ref={headlineRef}
-            className="max-w-4xl font-display text-5xl font-bold leading-[0.92] tracking-[-0.05em] text-white sm:text-6xl md:text-7xl lg:text-8xl"
+            className="max-w-4xl font-display text-5xl font-bold leading-[0.92] tracking-[-0.05em] theme-text-main sm:text-6xl md:text-7xl lg:text-8xl"
           >
             <span className="block overflow-hidden">
               <span data-split className="block">Maddula Purushottama</span>
             </span>
-            <span className="block overflow-hidden text-white/70">
+            <span className="block overflow-hidden text-[var(--text-secondary)]">
               <span data-split className="block">Kumar builds premium</span>
             </span>
             <span className="block overflow-hidden text-[#5eead4]">
@@ -105,7 +105,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="mt-7 max-w-2xl text-pretty text-lg leading-8 text-white/72 sm:text-xl">
+          <p className="mt-7 max-w-2xl text-pretty text-lg leading-8 theme-text-secondary sm:text-xl">
             I design and build polished web experiences with strong UX, cinematic motion, and
             clean technical execution. This portfolio is intentionally crafted to feel premium,
             honest, and memorable.
@@ -115,7 +115,7 @@ export default function Hero() {
             {highlights.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/72 backdrop-blur"
+                className="theme-pill rounded-full px-4 py-2 text-sm backdrop-blur"
               >
                 {item}
               </span>
@@ -126,7 +126,7 @@ export default function Hero() {
             <Link
               href="/projects"
               className={cn(
-                "inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#050816] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_40px_rgba(255,255,255,0.18)]",
+                "theme-button-primary inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition-transform duration-200 hover:-translate-y-0.5",
                 "premium-focus"
               )}
             >
@@ -135,26 +135,26 @@ export default function Hero() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white/88 transition hover:border-white/20 hover:bg-white/10 premium-focus"
+              className="theme-button-secondary inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition premium-focus"
             >
               Start a conversation
             </Link>
             <a
               href="#featured-case-study"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 px-6 py-3.5 text-sm font-semibold text-white/72 transition hover:bg-white/5 premium-focus"
+              className="theme-button-secondary inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition premium-focus"
             >
               Jump to case study
             </a>
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-5 text-sm text-white/55">
-            <a href="https://github.com/MPkS1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition hover:text-white">
+          <div className="mt-10 flex flex-wrap items-center gap-5 text-sm theme-text-muted">
+            <a href="https://github.com/MPkS1" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition hover:text-[var(--text-primary)]">
               <GithubIcon className="h-4 w-4" /> GitHub
             </a>
-            <a href="https://linkedin.com/in/maddula-purushottama-kumar" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition hover:text-white">
+            <a href="https://linkedin.com/in/maddula-purushottama-kumar" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition hover:text-[var(--text-primary)]">
               <LinkedinIcon className="h-4 w-4" /> LinkedIn
             </a>
-            <Link href="/contact" className="inline-flex items-center gap-2 transition hover:text-white">
+            <Link href="/contact" className="inline-flex items-center gap-2 transition hover:text-[var(--text-primary)]">
               <Download className="h-4 w-4" /> Resume on request
             </Link>
           </div>
@@ -170,21 +170,21 @@ export default function Hero() {
           <div className="premium-glass relative overflow-hidden rounded-[2.25rem] p-5 sm:p-6">
             <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.08),transparent_28%,rgba(255,255,255,0.02))]" />
             <div className="relative space-y-5">
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-white/45">
+              <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] theme-text-muted">
                 <span>Profile</span>
                 <span>Motion-ready</span>
               </div>
 
-              <div className="relative mx-auto flex aspect-square w-full max-w-sm items-center justify-center rounded-[2rem] border border-white/10 bg-[#0b1021]">
-                <div className="absolute inset-6 rounded-full border border-white/10" />
-                <div className="absolute inset-10 rounded-full border border-white/8" />
+              <div className="relative mx-auto flex aspect-square w-full max-w-sm items-center justify-center rounded-[2rem] border border-[var(--border)] bg-[color-mix(in_srgb,var(--surface-strong)_84%,transparent)]">
+                <div className="absolute inset-6 rounded-full border border-[var(--border)]" />
+                <div className="absolute inset-10 rounded-full border border-[var(--border)]" />
                 <div className="absolute inset-0 rounded-[2rem] bg-[radial-gradient(circle_at_center,rgba(124,92,255,0.22),transparent_45%),radial-gradient(circle_at_35%_35%,rgba(94,234,212,0.16),transparent_22%)]" />
                 <div className="relative flex h-44 w-44 items-center justify-center rounded-full border border-white/10 bg-gradient-to-br from-white/14 to-white/5 shadow-[0_0_90px_rgba(124,92,255,0.24)]">
-                  <div className="flex h-36 w-36 items-center justify-center rounded-full border border-white/10 bg-[#050816] text-center">
+                  <div className="flex h-36 w-36 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface-strong)] text-center">
                     <div>
-                      <p className="text-xs uppercase tracking-[0.45em] text-white/40">MPK</p>
-                      <p className="mt-2 font-display text-3xl font-bold text-white">Frontend</p>
-                      <p className="mt-1 text-sm text-white/55">Product-minded builder</p>
+                      <p className="text-xs uppercase tracking-[0.45em] theme-text-muted">MPK</p>
+                      <p className="mt-2 font-display text-3xl font-bold theme-text-main">Frontend</p>
+                      <p className="mt-1 text-sm theme-text-secondary">Product-minded builder</p>
                     </div>
                   </div>
                 </div>
@@ -192,9 +192,9 @@ export default function Hero() {
 
               <div className="grid gap-3 sm:grid-cols-3">
                 {stats.map((stat) => (
-                  <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
-                    <div className="font-display text-2xl font-bold text-white">{stat.value}</div>
-                    <div className="mt-1 text-xs uppercase tracking-[0.22em] text-white/45">{stat.label}</div>
+                  <div key={stat.label} className="theme-card rounded-2xl p-4 text-center">
+                    <div className="font-display text-2xl font-bold theme-text-main">{stat.value}</div>
+                    <div className="mt-1 text-xs uppercase tracking-[0.22em] theme-text-muted">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -203,7 +203,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="mx-auto mt-12 flex max-w-7xl items-center justify-between px-4 pb-10 text-xs uppercase tracking-[0.32em] text-white/35 sm:px-6">
+      <div className="mx-auto mt-12 flex max-w-7xl items-center justify-between px-4 pb-10 text-xs uppercase tracking-[0.32em] theme-text-muted sm:px-6">
         <span>Scroll for case studies</span>
         <span>Premium portfolio system</span>
       </div>

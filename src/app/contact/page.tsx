@@ -28,16 +28,16 @@ export default function ContactPage() {
       <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
         <div className="space-y-6">
           <div className="premium-glass rounded-[2rem] p-6 sm:p-8">
-            <h2 className="text-xl font-semibold text-white">Connect</h2>
+            <h2 className="text-xl font-semibold theme-text-main">Connect</h2>
             <div className="mt-6 space-y-4">
               {socials.map(({ href, icon: Icon, label, value }) => (
-                <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 transition hover:border-white/20 hover:bg-white/10">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-black/20">
-                    <Icon className="h-5 w-5 text-white/70" />
+                <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="theme-card flex items-center gap-4 rounded-2xl p-4 transition hover:border-[var(--border-strong)]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[var(--border)] bg-[color-mix(in_srgb,var(--surface-soft)_70%,transparent)]">
+                    <Icon className="h-5 w-5 theme-text-secondary" />
                   </div>
                   <div>
-                    <p className="text-xs uppercase tracking-[0.28em] text-white/42">{label}</p>
-                    <p className="mt-1 text-sm text-white/76">{value}</p>
+                    <p className="text-xs uppercase tracking-[0.28em] theme-text-muted">{label}</p>
+                    <p className="mt-1 text-sm theme-text-secondary">{value}</p>
                   </div>
                 </a>
               ))}
@@ -47,10 +47,10 @@ export default function ContactPage() {
           <div className="premium-glass rounded-[2rem] p-6 sm:p-8">
             <div className="flex items-center gap-3 text-[#5eead4]">
               <MapPin className="h-5 w-5" />
-              <span className="text-sm font-semibold uppercase tracking-[0.28em] text-white/45">Location</span>
+              <span className="text-sm font-semibold uppercase tracking-[0.28em] theme-text-muted">Location</span>
             </div>
-            <p className="mt-4 text-sm leading-7 text-white/70">Remote-friendly and available for worldwide opportunities.</p>
-            <p className="mt-4 text-sm leading-7 text-white/54">I typically respond within 24 hours.</p>
+            <p className="mt-4 text-sm leading-7 theme-text-secondary">Remote-friendly and available for worldwide opportunities.</p>
+            <p className="mt-4 text-sm leading-7 theme-text-muted">I typically respond within 24 hours.</p>
           </div>
         </div>
 

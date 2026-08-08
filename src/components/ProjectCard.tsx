@@ -28,7 +28,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.45, delay: index * 0.08 }}
       className={cn(
-        "group relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(14,19,37,0.9),rgba(14,19,37,0.68))] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_24px_80px_rgba(0,0,0,0.4)]",
+        "theme-card group relative overflow-hidden rounded-[2rem] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)]",
         isHeroCaseStudy && "md:col-span-2 xl:col-span-2"
       )}
     >
@@ -43,7 +43,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           >
             {project.category}
           </span>
-          <div className="flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-white/42">
+          <div className="flex items-center gap-2 text-xs uppercase tracking-[0.22em] theme-text-muted">
             {project.featured && <Star className="h-4 w-4 fill-[#ffb86c] text-[#ffb86c]" />}
             {project.year}
           </div>
@@ -56,17 +56,17 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           </div>
         )}
 
-        <h3 className="font-display text-2xl font-bold tracking-[-0.03em] text-white transition-colors duration-300 group-hover:text-[#e9e3ff]">
+        <h3 className="font-display text-2xl font-bold tracking-[-0.03em] theme-text-main transition-colors duration-300 group-hover:opacity-90">
           {project.title}
         </h3>
 
-        <p className="mt-3 text-sm leading-7 text-white/64">
+        <p className="mt-3 text-sm leading-7 theme-text-secondary">
           {project.description}
         </p>
 
-        <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-4">
-          <p className="text-xs uppercase tracking-[0.24em] text-white/45">Case study</p>
-          <p className="mt-2 text-sm leading-7 text-white/72">{project.longDescription}</p>
+        <div className="theme-card mt-5 rounded-2xl p-4">
+          <p className="text-xs uppercase tracking-[0.24em] theme-text-muted">Case study</p>
+          <p className="mt-2 text-sm leading-7 theme-text-secondary">{project.longDescription}</p>
         </div>
 
         {isHeroCaseStudy && (
@@ -78,7 +78,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         {project.aiTools && project.aiTools.length > 0 && (
           <div className="mt-5 flex flex-wrap gap-2">
             {project.aiTools.map((tool) => (
-              <span key={tool} className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/62">
+              <span key={tool} className="theme-pill rounded-full px-3 py-1 text-xs">
                 {tool}
               </span>
             ))}
@@ -87,12 +87,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
         <div className="mt-5 flex flex-wrap gap-2">
           {project.tech.slice(0, 5).map((tech) => (
-            <span key={tech} className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-white/62">
+            <span key={tech} className="theme-pill rounded-full px-3 py-1 text-xs">
               {tech}
             </span>
           ))}
           {project.tech.length > 5 && (
-            <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-white/45">
+            <span className="theme-pill rounded-full px-3 py-1 text-xs theme-text-muted">
               +{project.tech.length - 5}
             </span>
           )}
@@ -104,7 +104,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition hover:border-white/20 hover:bg-white/10"
+              className="theme-button-secondary inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm transition"
             >
               Source
               <ArrowUpRight className="h-4 w-4" />
@@ -115,13 +115,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/80 transition hover:border-white/20 hover:bg-white/10"
+              className="theme-button-secondary inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm transition"
             >
               <Globe className="h-4 w-4" />
               Live
             </a>
           )}
-          <span className="ml-auto text-xs uppercase tracking-[0.22em] text-white/40">Case study</span>
+          <span className="ml-auto text-xs uppercase tracking-[0.22em] theme-text-muted">Case study</span>
         </div>
       </div>
     </motion.article>

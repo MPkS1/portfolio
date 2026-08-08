@@ -31,7 +31,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(14,19,37,0.9),rgba(14,19,37,0.68))] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_20px_70px_rgba(0,0,0,0.35)]"
+      className="theme-card group relative overflow-hidden rounded-[2rem] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)]"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(124,92,255,0.14),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(94,234,212,0.08),transparent_30%)] opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="flex items-start justify-between gap-4 mb-4">
@@ -50,11 +50,11 @@ export default function BlogCard({ post, index }: BlogCardProps) {
         )}
       </div>
 
-      <h3 className="font-display text-xl font-bold tracking-[-0.03em] text-white transition-colors duration-300 group-hover:text-[#e9e3ff]">
+      <h3 className="font-display text-xl font-bold tracking-[-0.03em] theme-text-main transition-colors duration-300 group-hover:opacity-90">
         {post.title}
       </h3>
 
-      <p className="mt-3 text-sm leading-7 text-white/64">
+      <p className="mt-3 text-sm leading-7 theme-text-secondary">
         {post.excerpt}
       </p>
 
@@ -62,7 +62,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
         {post.tags.slice(0, 3).map((tag) => (
           <span
             key={tag}
-            className="inline-flex items-center gap-1 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/58"
+            className="theme-pill inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs"
           >
             <Tag className="w-3 h-3" />
             {tag}
@@ -70,7 +70,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
         ))}
       </div>
 
-      <div className="mt-5 flex items-center justify-between text-xs text-white/38">
+      <div className="mt-5 flex items-center justify-between text-xs theme-text-muted">
         <span>{formattedDate}</span>
         <span className="inline-flex items-center gap-1">
           <Clock className="w-3 h-3" />
@@ -78,7 +78,7 @@ export default function BlogCard({ post, index }: BlogCardProps) {
         </span>
       </div>
 
-      <Link href={`/blog#${post.id}`} className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-white/78 transition hover:text-white">
+      <Link href={`/blog#${post.id}`} className="theme-link-accent mt-6 inline-flex items-center gap-2 text-sm font-medium transition hover:opacity-85">
         Read case notes
         <ArrowUpRight className="h-4 w-4" />
       </Link>

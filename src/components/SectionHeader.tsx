@@ -18,15 +18,15 @@ export default function SectionHeader({ label, title, description }: SectionHead
       className="mb-12 text-center"
     >
       {label && (
-        <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.34em] text-[#5eead4]">
+        <span className="theme-pill mb-3 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.34em] text-[#5eead4]">
           {label}
         </span>
       )}
-      <h2 className="font-display text-3xl font-bold tracking-[-0.04em] text-white sm:text-4xl lg:text-5xl">
+      <h2 className="font-display text-3xl font-bold tracking-[-0.04em] theme-text-main sm:text-4xl lg:text-5xl">
         {title}
       </h2>
       {description && (
-        <p className="mx-auto mt-4 max-w-2xl text-balance text-base leading-7 text-white/62 sm:text-lg">
+        <p className="mx-auto mt-4 max-w-2xl text-balance text-base leading-7 theme-text-secondary sm:text-lg">
           {description}
         </p>
       )}
